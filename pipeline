@@ -1,0 +1,30 @@
+To install terraform
+---------------------
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo yum -y install terraform
+
+
+
+pipeline script
+---------------
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Git_checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/balu1391/Fc-task-1.git'
+            }
+        }
+	stage('terraform') {
+            steps {
+                sh'terraform init'
+		sh'terraform plan'
+		sh'terraform apply -auto-approve'
+            }
+        }
+    }
+}

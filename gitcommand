@@ -1,0 +1,24 @@
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/balu1391/git-commands.git
+git push -u origin main
+
+git pull origin main 
+
+error :- fatal: refusing to merge unrelated histories
+
+try :- git pull origin main --allow-unrelated-histories
+
+Difference between git reset and git revert
+------------------------------------
+
+git reset :- 1) it remove files from working directory / it get back files to untracked area
+             
+             2) git reset <commit-id>    -- moves the pointer back to the commit you specify  -- if u change 4 to 2 -- only 2 commits wii be there
+             
+             3) git reset --hard HEAD~1   --- it deletes the commits also
+             
+ git revert :- git revert creates another commit at the end of the chain to cancel the change.
+  
